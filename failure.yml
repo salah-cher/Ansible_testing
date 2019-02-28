@@ -1,0 +1,19 @@
+---
+- name : Check OS ver
+  hosts: Puppet
+#  become: yes
+#  become_method: sudo
+  serial: 1
+ # vars_files:
+ #   - /password.yaml
+
+
+tasks:
+- name: this command prints FAILED when it fails
+  command: /usr/bin/example-command -x -y -z
+  register: command_result
+  ignore_errors: True
+
+- name: fail the play if the previous command did not succeed
+  fail: msg="the command failed"
+  when: "'FAILED' in command_result.stderr"
