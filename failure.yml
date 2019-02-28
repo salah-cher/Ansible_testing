@@ -15,6 +15,6 @@
     ignore_errors: True
 
   - name: fail the play if the previous command did not succeed
-    fail: msg="the command failed"
-    #when: "'FAILED' in command_result.stderr"
-    failed_when: command_result.rc != 0
+    fail: msg="the previous command and tasks failed .."
+    when: "command_result.rc != 0"
+    #failed_when: command_result.rc != 0
