@@ -1,6 +1,6 @@
 ---
 - name : Check OS ver
-  hosts: Puppet
+  hosts: all
 #  become: yes
 #  become_method: sudo
   serial: 1
